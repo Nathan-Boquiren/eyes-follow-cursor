@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 100vh;
+    background-color: blueviolet;
+}
+
+
+
+.emoji-face {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 217, 0, 0.842);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+body:first-child {
+    background-color: white;
+}
+
+.emoji-face .eyebrows {
+    position: absolute;
+    top: 45px;
+    display: flex;
+    gap: 40px;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.eyebrow {
+    width: 65px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: black;
+    transition: all 0.1s ease;
+}
+
+
+
+.mouth {
+    top: 180px;
+    position: absolute;
+    width: 150px;
+    height: 70px;
+    background: crimson;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    transition: all 0.2s ease;
+}
+
+.emoji-face:hover .mouth {
+    border-radius: 10px;
+    height: 20px;
+    transform: translateY(30px);
+}
+
+.emoji-face:hover .eyebrows {
+    transform: translateY(-20px);
+}
+
+.emoji-face:active {
+
+    .eyebrow {
+        height: 15px;
+        width: 80px;
+    }
+
+    .left-eyebrow {
+        transform: rotate(20deg) translate(10px, 38px);
+    }
+
+    .right-eyebrow {
+        transform: rotate(-20deg) translate(-10px, 38px);
+    }
+}
+
+.eyes {
+    position: relative;
+    top: -40px;
+    display: flex;
+}
+
+.eyes .eye {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: block;
+    background: white;
+    border-radius: 50%;
+    margin: 0 15px;
+    z-index: 1;
+}
+
+.eyes .eye::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: black;
+}
