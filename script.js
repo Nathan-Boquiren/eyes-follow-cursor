@@ -1,6 +1,6 @@
 const body = document.querySelector("body");
-
 const minion = document.getElementById("minion");
+const gameLink = document.getElementById("guess-number-game-link");
 
 function eyeball() {
   let eyes = document.querySelectorAll(".eye");
@@ -17,10 +17,28 @@ function eyeball() {
 body.addEventListener("mousemove", eyeball);
 body.addEventListener("touchmove", eyeball);
 
-function showMsg() {
+function hideMinion() {
   minion.style.transform = "scale(0)";
   minion.style.rotate = "720deg";
-  document.getElementById("hover-msg").style.opacity = "0";
 }
 
-minion.addEventListener("click", showMsg);
+const msg = document.getElementById("hover-msg");
+const msgText = document.getElementById("msg");
+
+function toggleMsg(show, message = "") {
+  if (show) {
+    msg.style.opacity = "1";
+    msgText.innerHTML = `<p>${message}</p>`;
+  } else {
+    msg.style.opacity = "0";
+  }
+}
+
+minion.addEventListener("click", hideMinion);
+minion.addEventListener("mouseover", () => toggleMsg(true, "Don't click me!"));
+minion.addEventListener("mouseleave", () => toggleMsg(false));
+
+gameLink.addEventListener("mouseover", () =>
+  toggleMsg(true, "Don't click that!")
+);
+gameLink.addEventListener("mouseleave", () => toggleMsg(false));
